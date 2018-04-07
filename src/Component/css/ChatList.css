@@ -1,0 +1,61 @@
+#control-bar{
+    position: absolute;
+    width: 65px;
+    height: 100%;
+    background-color: rgb(38,38,38);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#search-box{
+    width: 100%;
+    height: 65px;
+    border-bottom: 1px solid rgb(229,229,229);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#search-box input, #friend-search-box input {
+    padding: 6px;
+    border: none;
+    margin-top: 12px;
+    font-size: 17px;
+    background-color: rgb(225,225,225);
+}
+#messageList {
+    width: 100%;
+    height: 473px;
+    overflow: scroll;
+}
+.messageElement{
+    width: 100%;
+    height: 65px;
+    border-bottom: 1px solid rgb(229,229,229);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.userAvatar{
+    width: 38px;border-radius: 5px;
+}
+.chatListLastUpdate {
+    text-align: left;
+    font-size: 14px;
+    color: rgb(175,158,144);
+    width: 164px;
+    overflow: hidden;
+}
+.chatListTitle {
+    text-align: left;
+    font-size: 17px;
+}
+.userChatPreview{
+    width: 120px;margin-left: 10px;height: 50px;
+}
+.chatTimeBox{
+    width: 40px;margin-left: 10px;height: 50px;
+}
+.chatListTime {
+    text-align: left;
+    font-size: 14px;
+    color: rgb(175,158,144);
+}
