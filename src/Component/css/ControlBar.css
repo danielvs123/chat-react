@@ -1,0 +1,21 @@
+#chatList-bar{
+    position: absolute;
+    left: 64px;
+    border: 1px solid rgb(229,229,229);
+    width: 235.55px;
+    height: 538px;
+    background-color: white;
+}
+#myAvatar-outer{
+    margin-top: 30px;
+}
+#router-bar{
+    margin-top: 30px;
+}
+.pageRouterDiv{
+    width: 100%;
+}
+.pageRouterBtn{
+    width: 50%;
+    margin-top: 15px;
+}
