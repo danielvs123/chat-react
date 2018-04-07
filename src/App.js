@@ -10,8 +10,8 @@ class App extends Component {
         <div id="body-container">
             <div id="main-container">
                 <ControlBar/>
-                {/*<MainChatView/>*/}
-                <MainFriendsView/>
+                <MainChatView/>
+                {/*<MainFriendsView/>*/}
             </div>
         </div>
     );
