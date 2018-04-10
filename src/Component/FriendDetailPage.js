@@ -14,7 +14,7 @@ class FriendDetailPage extends Component {
                             </div>
                             <div className="clear" />
                         </div>
-                        <div id="send-message-btn" data-id="userIdDemo1">发消息</div>
+                        <div id="send-message-btn" data-id="userIdDemo1" >发消息</div>
                     </div>
                 </div>
             </div>

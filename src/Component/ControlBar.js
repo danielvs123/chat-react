@@ -6,6 +6,12 @@ import ChatSVG from '../svg/chat.svg';
 import UsersSVG from '../svg/users.svg';
 
 class ControlBar extends Component {
+    goToChatPage() {
+        this.props.setPage("MainChatView")
+    }
+    goToUserPage() {
+        this.props.setPage("MainFriendsView");
+    }
     render() {
         return (
             <div id="control-bar">
@@ -13,10 +19,10 @@ class ControlBar extends Component {
                     <img className={"avatar"} src="https://shuaiyixu.com/img/1.jpg" />
                 </div>
                 <div id="router-bar">
-                    <div className="pageRouterDiv">
+                    <div className="pageRouterDiv" onClick={this.goToChatPage.bind(this)}>
                         <img src={ChatSVG} className="pageRouterBtn"/>
                     </div>
-                    <div className="pageRouterDiv">
+                    <div className="pageRouterDiv" onClick={this.goToUserPage.bind(this)}>
                         <img src={UsersSVG} className="pageRouterBtn"/>
                     </div>
                 </div>

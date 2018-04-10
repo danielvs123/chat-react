@@ -5,11 +5,18 @@ import './css/ChatList.css';
 import './css/Common.css';
 
 class ChatList extends Component {
+
+    transferMsg(uid) {
+        this.props.transferMsg(uid);
+    }
+
     render() {
         return (
             <div id="chatList-bar">
+                {/*搜索窗口*/}
                 <SearchBox/>
-                <MessageList/>
+                {/*预览消息框*/}
+                <MessageList  transferMsg = {msg => this.transferMsg(msg)}/>
             </div>
         );
     }

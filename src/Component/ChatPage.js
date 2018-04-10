@@ -3,12 +3,20 @@ import './css/ChatPage.css';
 
 class ChatPage extends Component {
     render() {
-        return (
-            <div id="chatPage">
-                <div id="chatPage-username">DanielVS</div>
-                <textarea id="messageInput" />
-            </div>
-        );
+        let dom = "";
+        if (this.props.user===""){
+            return (
+                <div id="chatPage">
+                </div>
+            );
+        }else{
+            return (
+                <div id="chatPage">
+                    <div id="chatPage-username">{this.props.user}</div>
+                    <textarea id="messageInput" />
+                </div>
+            );
+        }
     }
 }
 
