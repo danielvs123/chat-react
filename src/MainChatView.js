@@ -8,9 +8,10 @@ class MainChatView extends Component {
         onclickUser:""
     };
 
-    transferMsg(msg) {
+    transferMsg(uid) {
+        this.props.setCurrentUser(uid);
         this.setState({
-            onclickUser:msg
+            onclickUser:uid
         });
     }
 
@@ -18,12 +19,16 @@ class MainChatView extends Component {
         return (
             <div>
                 {/*这里是点击的*/}
-                <ChatList transferMsg = {msg => this.transferMsg(msg)}/>
+                <ChatList transferMsg = {uid => this.transferMsg(uid)}/>
                 {/*这里是输入的*/}
                 <ChatPage user={this.state.onclickUser}/>
             </div>
         );
     }
 }
+//
+// function mapStateToProps() {
+//
+// }
 
 export default MainChatView;

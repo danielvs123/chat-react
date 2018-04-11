@@ -1,38 +1,49 @@
 import React, { Component } from 'react';
 import SearchBox from './SearchBox';
 import './css/FriendList.css';
+import { bindActionCreators } from 'redux';
+import { connect } from "react-redux";
+import { ViewUserProfile } from '../Action/ViewUserProfile'
 
 class FriendList extends Component {
+    createFriendList(){
+        console.log(this.props);
+        return this.props.users.map((user) => {
+            return (
+                <div className="friend-list-dom"
+                     key={user.userId}
+                     onClick = { () => this.props.ViewUserProfile(user)}
+                >
+                    <img
+                        src={user.avatarUrl} className="friend-list-dom-img" />
+                    <div className="friend-list-dom-name">
+                        {user.username}
+                    </div>
+                </div>
+            )
+        });
+    }
     render() {
         return (
             <div id="friend-control-bar">
                 <SearchBox/>
                 <div id="friend-list">
-                    <div className="friend-list-dom">
-                        <img
-                        src="https://shuaiyixu.com/img/2.jpg" className="friend-list-dom-img" />
-                        <div className="friend-list-dom-name">
-                            DanielVS
-                        </div>
-                    </div>
-                    <div className="friend-list-dom">
-                        <img
-                            src="https://shuaiyixu.com/img/2.jpg" className="friend-list-dom-img" />
-                        <div className="friend-list-dom-name">
-                            DanielVS
-                        </div>
-                    </div>
-                    <div className="friend-list-dom">
-                        <img
-                            src="https://shuaiyixu.com/img/2.jpg" className="friend-list-dom-img" />
-                        <div className="friend-list-dom-name">
-                            DanielVS
-                        </div>
-                    </div>
+                    {this.createFriendList()}
                 </div>
             </div>
         );
     }
 }
 
-export default FriendList;
+function mapStateToProps(state) {
+    return {
+        users:state.users
+    }
+
+}
+
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({ViewUserProfile:ViewUserProfile},dispatch);
+}
+
+export default connect(mapStateToProps,matchDispatchToProps)(FriendList);
