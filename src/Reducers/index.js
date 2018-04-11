@@ -1,10 +1,12 @@
 import {combineReducers} from 'redux';
 import UserReducer from '../Reducers/userData';
-import ActiveReducer from '../Reducers/reducerUser';
+import ActiveUserReducer from '../Reducers/reducerUser';
+import ActivePageReducer from '../Reducers/reducerPage';
 
 const allReducers = combineReducers({
     users: UserReducer,
-    activeUser:ActiveReducer
+    activeUser:ActiveUserReducer,
+    activePage:ActivePageReducer
 });
 
 export default allReducers;

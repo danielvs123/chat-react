@@ -7,7 +7,6 @@ import { ViewUserProfile } from '../Action/ViewUserProfile'
 
 class FriendList extends Component {
     createFriendList(){
-        console.log(this.props);
         return this.props.users.map((user) => {
             return (
                 <div className="friend-list-dom"

@@ -9,7 +9,6 @@ class MainFriendsView extends Component {
     };
 
     startChat(uid){
-        console.log(uid);
         this.setState({
             currentOnSelectUser:uid
         });

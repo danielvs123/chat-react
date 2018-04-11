@@ -3,61 +3,51 @@ import ControlBar from './Component/ControlBar';
 import './App.css';
 import MainChatView from "./MainChatView";
 import MainFriendsView from "./MainFriendsView"
-import { connect } from 'react-redux';
-import { createStore } from 'redux';
-const reducer = (state = [],action) =>{
-    if (action.type === 'split_string'){
-        console.log("get");
-        return action.payload.split('');
-    }
-};
-const store = createStore(reducer);
-store.getState();
-
-const action = {
-    type:'split_string',
-    payload:'asdf'
-};
-
-store.dispatch(action);
-console.log(store.getState());
+import { bindActionCreators } from 'redux';
+import { connect } from "react-redux";
 
 class App extends Component {
-    state = {
-        currentPage:"MainChatView",
-        onSelectUser:""
-    };
-    setPage(msg){
-        this.setState({
-            currentPage:msg
-        })
-    }
-    setCurrentUser(user){
-        this.setState({
-            onSelectUser:user
-        })
-    }
     render() {
-        if (this.state.currentPage === "MainChatView"){
+        if (!this.props.activePage){
             return (
                 <div id="body-container">
                     <div id="main-container">
-                        <ControlBar setPage = {msg => this.setPage(msg)}/>
-                        <MainChatView setCurrentUser = {user => this.setCurrentUser(user)} />
+                        <ControlBar />
+                        <MainChatView />
                     </div>
                 </div>
-            );
+            )
         }else{
-            return (
-                <div id="body-container">
-                    <div id="main-container">
-                        <ControlBar setPage = {msg => this.setPage(msg)}/>
-                        <MainFriendsView setCurrentUser = {user => this.setCurrentUser(user)} />
+            if (this.props.activePage.name === "chat"){
+                return (
+                    <div id="body-container">
+                        <div id="main-container">
+                            <ControlBar />
+                            <MainChatView />
+                        </div>
                     </div>
-                </div>
-            );
+                )
+            }else{
+                return (
+                    <div id="body-container">
+                        <div id="main-container">
+                            <ControlBar />
+                            <MainFriendsView />
+                        </div>
+                    </div>
+                );
+            }
         }
     }
 }
+function mapStateToProps(state) {
+    return {
+        activePage: state.activePage
+    }
+}
 
-export default App;
+// function matchDispatchToProps(dispatch) {
+//     return bindActionCreators({GoToPage:GoToPage},dispatch);
+// }
+
+export default connect(mapStateToProps)(App);
