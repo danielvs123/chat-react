@@ -4,21 +4,11 @@ import FriendDetailPage from './Component/FriendDetailPage';
 
 class MainFriendsView extends Component {
 
-    state = {
-        currentOnSelectUser:""
-    };
-
-    startChat(uid){
-        this.setState({
-            currentOnSelectUser:uid
-        });
-    }
-
     render() {
         return (
             <div>
-                <FriendList startChat = {uid => this.startChat(uid)}/>
-                <FriendDetailPage user={this.state.currentOnSelectUser}/>
+                <FriendList />
+                <FriendDetailPage />
             </div>
         );
     }
